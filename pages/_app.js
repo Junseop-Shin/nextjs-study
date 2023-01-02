@@ -3,6 +3,11 @@ import Layout from "../components/Layout";
 import "../styles/globals.css";
 import { useState } from "react";
 import { format, formatDistanceToNow } from "date-fns";
+import ErrorBoundary from "../components/ErrorBoundary";
+
+export function reportWebVitals(metric) {
+  console.log(metric);
+}
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -17,7 +22,9 @@ export default function App({ Component, pageProps }) {
           includeSeconds: true,
         })}
       </div>
-      <Component {...pageProps} />
+      <ErrorBoundary fallbackComponent={<div>하하하 민망하네요</div>}>
+        <Component {...pageProps} />
+      </ErrorBoundary>
     </Layout>
   );
 }

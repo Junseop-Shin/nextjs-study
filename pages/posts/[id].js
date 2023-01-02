@@ -41,6 +41,19 @@ export async function getStaticProps({ params, preview }) {
   };
 }
 
+const ErrorComponent = () => {
+  const [error, setError] = useState(false);
+
+  if (error) {
+    throw new Error("Error occured");
+  }
+  return (
+    <button onClick={setError(true)} className="rounded px-2 bg-green-500">
+      Error Fire
+    </button>
+  );
+};
+
 const components = { Button, CodeBlock };
 
 export default function Post({ postData }) {
@@ -54,6 +67,7 @@ export default function Post({ postData }) {
       <Head>
         <title>{`${postData.title} - ${siteTitle}`}</title>
       </Head>
+      <ErrorComponent />
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
