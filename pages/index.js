@@ -34,7 +34,7 @@ export default function Home({ allPostsData }) {
   //     .then((data) => setAllPostsData(data.allPostsData));
   // }, []);
   return (
-    <Layout home>
+    <>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -59,6 +59,6 @@ export default function Home({ allPostsData }) {
           ))}
         </ul>
       </section>
-    </Layout>
+    </>
   );
 }

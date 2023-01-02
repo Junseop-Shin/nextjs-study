@@ -49,7 +49,7 @@ export default function Post({ postData }) {
     return <div>Loading...</div>;
   }
   return (
-    <Layout>
+    <>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -65,6 +65,6 @@ export default function Post({ postData }) {
           <MDXRemote {...postData.mdxSource} components={components} />
         )}
       </article>{" "}
-    </Layout>
+    </>
   );
 }

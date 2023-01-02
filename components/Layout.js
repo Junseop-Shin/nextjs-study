@@ -65,7 +65,6 @@ export default function Layout({ children, home }) {
         <header className={styles.header}>
           {home ? (
             <>
-              <Utterance />
               <Image
                 priority
                 src="/images/profile.jpg"
@@ -97,6 +96,7 @@ export default function Layout({ children, home }) {
           )}
         </header>
         <main>{children}</main>
+        <Utterance />
         {!home && (
           <div className={styles.backToHome}>
             <Link href="/">← Back to home</Link>

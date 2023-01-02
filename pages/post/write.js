@@ -39,7 +39,7 @@ export default function write() {
   };
 
   return (
-    <Layout>
+    <>
       <h1>Write a post</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" name="id" placeholder="id" ref={idRef} required />
@@ -65,6 +65,6 @@ export default function write() {
       {postLink && (
         <Link href={`/posts/${idRef.current.value}`}>Created Post</Link>
       )}
-    </Layout>
+    </>
   );
 }
