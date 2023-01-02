@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 import CodeBlock from "../../components/CodeBlock";
 import Head from "next/head";
 import { getAllPostIds, getPostData } from "../../lib/posts";
@@ -7,6 +7,13 @@ import Date from "../../components/Date";
 import utilStyles from "../../styles/utils.module.css";
 import { useRouter } from "next/router";
 import { MDXRemote } from "next-mdx-remote";
+import dynamic from "next/dynamic";
+
+const Button = dynamic(() =>
+  import("../../components/Button", {
+    loading: () => <div>loading...</div>,
+  })
+);
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
