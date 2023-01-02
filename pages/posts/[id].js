@@ -8,6 +8,7 @@ import utilStyles from "../../styles/utils.module.css";
 import { useRouter } from "next/router";
 import { MDXRemote } from "next-mdx-remote";
 import dynamic from "next/dynamic";
+import { siteTitle } from "../_document";
 
 const Button = dynamic(() =>
   import("../../components/Button", {
@@ -51,7 +52,7 @@ export default function Post({ postData }) {
   return (
     <>
       <Head>
-        <title>{postData.title}</title>
+        <title>{`${postData.title} - ${siteTitle}`}</title>
       </Head>
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>

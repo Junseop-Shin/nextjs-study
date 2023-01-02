@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
-import Layout from "../../components/Layout";
 import Link from "next/link";
+import { Head } from "next/document";
+import { siteTitle } from "../_document";
 
 export default function write() {
   const [postLink, setPostLink] = useState(false);
@@ -40,6 +41,7 @@ export default function write() {
 
   return (
     <>
+      <Head>Write a post-{siteTitle}</Head>
       <h1>Write a post</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" name="id" placeholder="id" ref={idRef} required />
